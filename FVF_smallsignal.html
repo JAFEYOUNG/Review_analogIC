@@ -121,7 +121,7 @@
     height: auto;
   }
 
-  /* Clean Formula Containers + KaTeX styling */
+  /* KaTeX Containers */
   .formula-strip {
     background: #0f172a;
     color: #f8fafc;
@@ -242,8 +242,12 @@
     border-radius: 8px;
     padding: 9px 11px;
   }
+  .kpi.highlight-x {
+    background: #faf5ff;
+    border-color: #e9d5ff;
+  }
   .kpi-name { font-size: 0.75rem; color: var(--muted); }
-  .kpi-val { font-size: 1.08rem; font-weight: 700; margin-top: 2px; }
+  .kpi-val { font-size: 1.06rem; font-weight: 700; margin-top: 2px; }
   .kpi-sub { font-size: 0.74rem; color: #64748b; margin-top: 2px; }
 
   .callout {
@@ -259,6 +263,11 @@
     background: #fef2f2;
     border-left-color: var(--accent);
     color: #7f1d1d;
+  }
+  .callout.purple {
+    background: #faf5ff;
+    border-left-color: var(--purple);
+    color: #4c1d95;
   }
 
   canvas {
@@ -426,8 +435,9 @@
 
             <line x1="135" y1="55" x2="365" y2="55" stroke="#7c3aed" stroke-width="2.5" />
             <circle cx="255" cy="55" r="4.5" fill="#7c3aed" />
-            <text x="215" y="42" font-size="12" font-weight="700" fill="#7c3aed">节点 X: v<tspan dy="3" font-size="9">x</tspan></text>
+            <text x="205" y="42" font-size="12" font-weight="700" fill="#7c3aed">节点 X: v<tspan dy="3" font-size="9">x</tspan></text>
 
+            <!-- M1 gm1 -->
             <line x1="145" y1="55" x2="145" y2="85" stroke="#0f172a" stroke-width="1.8" />
             <polygon points="145,85 133,105 145,125 157,105" fill="#fff" stroke="#0f172a" stroke-width="1.8" />
             <line x1="145" y1="94" x2="145" y2="112" stroke="#0f172a" stroke-width="1.6" />
@@ -435,6 +445,7 @@
             <line x1="145" y1="125" x2="145" y2="165" stroke="#0f172a" stroke-width="1.8" />
             <text x="115" y="76" font-size="10.5" font-weight="700" fill="#0f172a">g<tspan dy="2" font-size="8">m1</tspan><tspan dy="-2">v</tspan><tspan dy="2" font-size="8">gs1</tspan></text>
 
+            <!-- M1 gmb1 -->
             <g id="ss_gmb_grp">
               <line x1="205" y1="55" x2="205" y2="85" stroke="#d97706" stroke-width="1.8" />
               <polygon points="205,85 193,105 205,125 217,105" fill="#fff" stroke="#d97706" stroke-width="1.8" />
@@ -444,10 +455,12 @@
               <text x="172" y="76" font-size="10.5" font-weight="700" fill="#d97706">g<tspan dy="2" font-size="8">mb1</tspan><tspan dy="-2">v</tspan><tspan dy="2" font-size="8">bs1</tspan></text>
             </g>
 
+            <!-- M1 ro1 -->
             <line x1="255" y1="55" x2="255" y2="84" stroke="#0f172a" stroke-width="1.8" />
             <polyline points="255,84 249,89 261,95 249,101 261,107 249,113 261,119 255,124 255,165" fill="none" stroke="#0f172a" stroke-width="1.8" />
             <text x="265" y="108" font-size="11" font-weight="700" fill="#0f172a">r<tspan dy="2" font-size="8.5">o1</tspan></text>
 
+            <!-- roB -->
             <g id="ss_rob_grp">
               <line x1="305" y1="55" x2="305" y2="84" stroke="#e11d48" stroke-width="1.8" />
               <polyline points="305,84 299,89 311,95 299,101 311,107 299,113 311,119 305,124 305,158" fill="none" stroke="#e11d48" stroke-width="1.8" />
@@ -456,10 +469,14 @@
               <text x="314" y="108" font-size="11" font-weight="700" fill="#e11d48">r<tspan dy="2" font-size="8.5">oB</tspan></text>
             </g>
 
+            <!-- M2 gate control (i_g2 = 0!) -->
             <polyline points="365,55 365,158" fill="none" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="4 3" />
             <path d="M 365,158 A 7,7 0 0,1 365,172" fill="none" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="4 3" />
             <polyline points="365,172 365,205 385,205" fill="none" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="4 3" />
+            <text x="373" y="88" font-size="10.5" font-weight="700" fill="#7c3aed">接 G2 (开路)</text>
+            <text x="373" y="103" font-size="10.5" font-weight="700" fill="#7c3aed">i<tspan dy="2" font-size="8">g2</tspan><tspan dy="-2"> = 0</tspan></text>
 
+            <!-- M2 gm2*vx -->
             <line x1="395" y1="165" x2="395" y2="184" stroke="#7c3aed" stroke-width="1.8" />
             <polygon points="395,184 383,204 395,224 407,204" fill="#fff" stroke="#7c3aed" stroke-width="1.8" />
             <line x1="395" y1="194" x2="395" y2="212" stroke="#7c3aed" stroke-width="1.6" />
@@ -467,10 +484,12 @@
             <line x1="395" y1="224" x2="395" y2="245" stroke="#7c3aed" stroke-width="1.8" />
             <text x="410" y="207" font-size="11" font-weight="700" fill="#7c3aed">g<tspan dy="2" font-size="8.5">m2</tspan><tspan dy="-2">v</tspan><tspan dy="2" font-size="8.5">x</tspan></text>
 
+            <!-- ro2 -->
             <line x1="450" y1="165" x2="450" y2="184" stroke="#0f172a" stroke-width="1.8" />
             <polyline points="450,184 444,189 456,195 444,201 456,207 444,213 456,219 450,224 450,245" fill="none" stroke="#0f172a" stroke-width="1.8" />
             <text x="459" y="208" font-size="11" font-weight="700" fill="#0f172a">r<tspan dy="2" font-size="8.5">o2</tspan></text>
 
+            <!-- RL -->
             <g id="ss_rl_grp">
               <line x1="495" y1="165" x2="495" y2="184" stroke="#059669" stroke-width="1.8" />
               <polyline points="495,184 489,189 501,195 489,201 501,207 489,213 501,219 495,224 495,245" fill="none" stroke="#059669" stroke-width="1.8" />
@@ -478,13 +497,16 @@
             </g>
           </svg>
         </div>
+        <div class="callout purple">
+          <strong>看图秒懂：</strong>节点 X 只接了 r<sub>o1</sub>、r<sub>oB</sub> 和 <strong>M<sub>2</sub> 栅极（虚线，i<sub>g2</sub>=0）</strong>。所以在列节点 X 的 KCL 时，M<sub>2</sub> 不分走任何电流，固定 v<sub>out</sub> 时节点 X 对地开环电阻就是 <strong>r<sub>x</sub> = r<sub>o1</sub> &parallel; r<sub>oB</sub></strong>；但一旦闭环（允许 v<sub>out</sub> 联动），M<sub>2</sub> 会拉低 v<sub>out</sub> 迫使 M<sub>1</sub> 从节点 X 抽走电流，使实测闭环电阻骤降至 <strong>&approx; 1/g<sub>m2</sub></strong>！
+        </div>
       </div>
     </div>
 
     <!-- Right Column -->
     <div>
       <div class="card">
-        <div class="card-title"><span>实时参数调节与 FVF vs. 普通 SF 指标对比</span></div>
+        <div class="card-title"><span>实时参数调节与指标对比（含节点 X 开/闭环阻抗）</span></div>
         <div class="kpi-grid">
           <div class="kpi">
             <div class="kpi-name">FVF 输出电阻 R<sub>out,FVF</sub></div>
@@ -495,6 +517,16 @@
             <div class="kpi-name">FVF 带载电压增益 A<sub>v,FVF</sub></div>
             <div class="kpi-val mono" style="color:var(--green)" id="kpi_av_fvf">--</div>
             <div class="kpi-sub">普通 SF 带载：<span id="kpi_av_sf">--</span></div>
+          </div>
+          <div class="kpi highlight-x">
+            <div class="kpi-name">节点 X 开环电阻 r<sub>x</sub>（v<sub>out</sub>=0）</div>
+            <div class="kpi-val mono" style="color:var(--purple)" id="kpi_rx_open">--</div>
+            <div class="kpi-sub">r<sub>o1</sub> &parallel; r<sub>oB</sub>（与 M<sub>2</sub> 无关）</div>
+          </div>
+          <div class="kpi highlight-x">
+            <div class="kpi-name">节点 X 闭环实测电阻 R<sub>X,closed</sub></div>
+            <div class="kpi-val mono" style="color:var(--accent)" id="kpi_rx_closed">--</div>
+            <div class="kpi-sub">受 M<sub>2</sub> 反馈压低 &approx; 1/g<sub>m2</sub></div>
           </div>
           <div class="kpi">
             <div class="kpi-name">局部反馈环路增益 T<sub>0</sub></div>
@@ -526,8 +558,8 @@
             <input type="range" id="rob" min="5" max="150" step="1" value="40" oninput="updateAll()" />
           </div>
           <div class="ctrl" style="grid-column: 1 / -1;">
-            <div class="ctrl-head"><span>外部负载电阻 R<sub>L</sub>（拖到 100 &Omega; 看普通 SF 崩溃！）</span><span class="mono" id="val_rl">500 &Omega;</span></div>
-            <input type="range" id="rl" min="50" max="5000" step="25" value="500" oninput="updateAll()" />
+            <div class="ctrl-head"><span>外部负载电阻 R<sub>L</sub>（拖到极小看 R<sub>X,closed</sub> 逼近 r<sub>x</sub>！）</span><span class="mono" id="val_rl">500 &Omega;</span></div>
+            <input type="range" id="rl" min="10" max="5000" step="10" value="500" oninput="updateAll()" />
           </div>
         </div>
       </div>
@@ -538,7 +570,7 @@
         </div>
         <canvas id="cmpCanvas" height="225"></canvas>
         <div class="callout warn" style="margin-top:10px;">
-          <strong>设计注意事项（稳定性警告）：</strong>FVF 内部多了一个高阻节点 X（M<sub>2</sub> 的栅极）。如果输出端接了很大的负载电容 C<sub>L</sub>，输出极点往低频移动，极易导致这个两极点反馈环路出现<strong>振铃甚至自激振荡</strong>！因此驱动大容性负载时通常需要做频率补偿或限制 C<sub>L</sub>。
+          <strong>设计注意事项（稳定性警告）：</strong>FVF 环路具有两个主要极点（开环节点 X 极点 1/(r<sub>x</sub>C<sub>x</sub>) 与输出节点极点）。若输出端接入过大的负载电容 C<sub>L</sub>，输出极点向低频移动，极易导致相位裕度不足而出现<strong>振铃甚至振荡</strong>。
         </div>
       </div>
     </div>
@@ -546,11 +578,11 @@
 
   <!-- Step-by-step Derivation with Crisp KaTeX -->
   <div class="card">
-    <div class="card-title"><span>四步完成手写推导（期末 / 面试标准流程）</span></div>
+    <div class="card-title"><span>五步完整手写推导（含节点 X 开/闭环区分）</span></div>
     <ol class="step-list">
       <li>
-        <strong>第一步：列写节点 X（M<sub>1</sub> 漏极 / M<sub>2</sub> 栅极）的 KCL 方程</strong><br>
-        把 M<sub>1</sub> 看作从源极 v<sub>out</sub> 到漏极 v<sub>x</sub> 的共栅极（CG）放大器。记节点 X 的等效并行电阻为 <span id="inline_rx"></span>：
+        <strong>第一步：列写节点 X 的 KCL 方程（定义开环电阻 r<sub>x</sub>，为何此时与 M<sub>2</sub> 无关？）</strong><br>
+        因为 M<sub>2</sub> 接在节点 X 的是<strong>栅极（i<sub>g2</sub> = 0，绝缘开路）</strong>，M<sub>2</sub> 不会从节点 X 分走任何电流。我们在单独求解 v<sub>x</sub> 与 v<sub>out</sub> 的关系时（相当于先按住 v<sub>out</sub> = 0、断开反馈），节点 X 对交流地的<strong>开环等效并联电阻</strong>只由 r<sub>o1</sub> 和 r<sub>oB</sub> 决定，记为 <span id="inline_rx"></span>：
         <div class="step-eq" id="step1_eq"></div>
       </li>
       <li>
@@ -559,8 +591,8 @@
         <div class="step-eq" id="step2_eq"></div>
       </li>
       <li>
-        <strong>第三步：求带载电压增益 A<sub>v</sub>（接入负载 R<sub>L</sub>）</strong><br>
-        对节点 v<sub>out</sub> 列写 KCL 方程并代入第一步的 v<sub>x</sub>（记 r<sub>L,tot</sub> = r<sub>o2</sub> &parallel; R<sub>L</sub>）：
+        <strong>第三步：求带载电压增益 A<sub>v</sub>（联立节点 v<sub>out</sub> 引入 M<sub>2</sub> 与 R<sub>L</sub>）</strong><br>
+        对节点 v<sub>out</sub> 列写 KCL 方程并代入第一步的 v<sub>x</sub>：
         <div class="step-eq" id="step3_eq"></div>
         <div style="font-size:0.83rem; color:var(--muted); margin-top:6px;">
           可以看到：负载电导 1/R<sub>L</sub> 被分母上巨大的环路增益 g<sub>m2</sub>r<sub>x</sub> 缩小了几十倍！
@@ -569,6 +601,14 @@
       <li>
         <strong>第四步：为什么说“超级源随器（FVF）”几乎只剩体效应误差？</strong><br>
         若使用深 N 阱 NMOS 或把 PMOS FVF 的衬底与源极短接（消除 g<sub>mb1</sub> = 0），则理想条件下 A<sub>v</sub> 极其逼近 <strong>1.000</strong>；且 M<sub>1</sub> 电流恒定，V<sub>GS1</sub> 在大信号摆幅下几乎不变，线性度远超电阻负载和普通电流源负载源随器。
+      </li>
+      <li>
+        <strong>第五步（进阶厘清）：若真在“闭环状态”从节点 X 实测对地电阻 R<sub>X,closed</sub>，它等于多少？</strong><br>
+        此时允许 v<sub>out</sub> 随 v<sub>x</sub> 自由联动（v<sub>in</sub>=0）。M<sub>2</sub> 拉低 v<sub>out</sub> 迫使 M<sub>1</sub> 向下抽电流，通过联立 v<sub>out</sub> 的 KCL 可得（记 g<sub>&Sigma;</sub> = g<sub>m1</sub> + g<sub>mb1</sub> + 1/r<sub>o1</sub> + 1/r<sub>o2</sub> + 1/R<sub>L</sub>）：
+        <div class="step-eq" id="step5_eq"></div>
+        <div style="font-size:0.83rem; color:var(--muted); margin-top:6px;">
+          轻载/空载时负反馈把节点 X 的阻抗从 r<sub>x</sub> 压低为 <strong>1/g<sub>m2</sub> &parallel; r<sub>oB</sub></strong>；而当 R<sub>L</sub> &rarr; 0（即把 v<sub>out</sub> 短接到地、断开反馈）时，该式自动退化回 <strong>r<sub>o1</sub> &parallel; r<sub>oB</sub> = r<sub>x</sub></strong>！
+        </div>
       </li>
     </ol>
   </div>
@@ -595,7 +635,7 @@ function renderStaticSteps() {
   renderTex(
     document.getElementById('step1_eq'),
     '\\begin{aligned}' +
-    'g_{m1}(v_{in} - v_{out}) - g_{mb1}v_{out} + \\frac{v_x - v_{out}}{r_{o1}} + \\frac{v_x}{r_{oB}} &= 0 \\\\[6pt]' +
+    'g_{m1}(v_{in} - v_{out}) - g_{mb1}v_{out} + \\frac{v_x - v_{out}}{r_{o1}} + \\frac{v_x}{r_{oB}} + \\underbrace{i_{g2}}_{=\\,0} &= 0 \\\\[6pt]' +
     '\\Longrightarrow \\quad v_x = r_x \\left[ \\left(g_{m1} + g_{mb1} + \\frac{1}{r_{o1}}\\right)v_{out} - g_{m1}v_{in} \\right]' +
     '\\end{aligned}',
     true,
@@ -618,6 +658,15 @@ function renderStaticSteps() {
     '\\end{aligned}',
     true,
     'A_v = g_m1 / [g_m1 + g_mb1 + 1/r_o1 + (1/r_o2 + 1/R_L) / ((g_m2 + 1/r_oB) * r_x)]'
+  );
+  renderTex(
+    document.getElementById('step5_eq'),
+    '\\begin{aligned}' +
+    'R_{X,\\text{closed}} = \\frac{v_x}{i_x} &= \\left[ \\frac{1}{r_{oB}} + \\frac{g_{m2}\\left(g_{m1} + g_{mb1} + \\frac{1}{r_{o1}}\\right) + \\frac{1}{r_{o1}}\\left(\\frac{1}{r_{o2}} + \\frac{1}{R_L}\\right)}{g_{\\Sigma}} \\right]^{-1} \\\\[6pt]' +
+    '&\\approx \\frac{1}{g_{m2}} \\parallel r_{oB} \\quad (\\text{当 } R_L \\text{ 较大或空载时})' +
+    '\\end{aligned}',
+    true,
+    'R_X,closed ≈ (1/g_m2) || r_oB'
   );
 }
 
@@ -663,13 +712,18 @@ function calcMetrics(p, overrideRL = null) {
   const gl = overrideRL !== null ? (overrideRL > 0 ? 1 / overrideRL : 0) : p.gl;
   const gds1 = 1 / p.ro1;
   const gds2 = 1 / p.ro2;
-  const rx = 1 / (gds1 + p.gob);
+  const rxOpen = 1 / (gds1 + p.gob);
 
-  const goutFVF = gds2 + (p.gm2 + p.gob) * (p.gm1 + p.gmb1 + gds1) * rx;
+  const goutFVF = gds2 + (p.gm2 + p.gob) * (p.gm1 + p.gmb1 + gds1) * rxOpen;
   const routFVF = 1 / goutFVF;
 
-  const denomFVF = p.gm1 + p.gmb1 + gds1 + (gds2 + gl) / ((p.gm2 + p.gob) * rx);
+  const denomFVF = p.gm1 + p.gmb1 + gds1 + (gds2 + gl) / ((p.gm2 + p.gob) * rxOpen);
   const avFVF = p.gm1 / denomFVF;
+
+  // Exact closed-loop resistance seen at Node X (allowing v_out to move freely)
+  const sumG = p.gm1 + p.gmb1 + gds1 + gds2 + gl;
+  const rxClosedDenom = p.gob + (p.gm2 * (p.gm1 + p.gmb1 + gds1) + gds1 * (gds2 + gl)) / sumG;
+  const rxClosed = 1 / rxClosedDenom;
 
   // Exact Blackman's loop gain T0 broken at gate of M2
   const gInS1 = p.gob === 0 ? 0 : (1 + (p.gm1 + p.gmb1) * p.ro1) / (p.ro1 + 1 / p.gob);
@@ -682,7 +736,7 @@ function calcMetrics(p, overrideRL = null) {
   const routSF = 1 / goutSF;
   const avSF = p.gm1 / (goutSF + gl);
 
-  return { routFVF, avFVF, routSF, avSF, T0 };
+  return { routFVF, avFVF, routSF, avSF, T0, rxOpen, rxClosed };
 }
 
 function fmtRes(ohm) {
@@ -751,7 +805,7 @@ function drawComparisonPlot(p) {
   const pw = w - pad.l - pad.r;
   const ph = h - pad.t - pad.b;
 
-  const rMin = 50, rMax = 5000;
+  const rMin = 10, rMax = 5000;
   const xOf = r => pad.l + (Math.log10(r / rMin) / Math.log10(rMax / rMin)) * pw;
   const yOf = av => pad.t + ph - av * ph;
 
@@ -764,7 +818,7 @@ function drawComparisonPlot(p) {
     ctx.font = '10.5px ui-monospace, monospace';
     ctx.fillText(v.toFixed(2), 6, y + 3.5);
   });
-  [50, 100, 200, 500, 1000, 2000, 5000].forEach(r => {
+  [10, 20, 50, 100, 200, 500, 1000, 2000, 5000].forEach(r => {
     const x = xOf(r);
     ctx.beginPath(); ctx.moveTo(x, pad.t); ctx.lineTo(x, pad.t + ph); ctx.stroke();
     ctx.fillStyle = '#64748b';
@@ -780,7 +834,7 @@ function drawComparisonPlot(p) {
   ctx.lineTo(pad.l + pw, pad.t + ph);
   ctx.stroke();
 
-  const steps = 120;
+  const steps = 130;
   const plotAv = (isFVF, color) => {
     ctx.save();
     ctx.strokeStyle = color;
@@ -847,6 +901,8 @@ function updateAll() {
   document.getElementById('kpi_ro_sf').textContent = fmtRes(m.routSF);
   document.getElementById('kpi_av_fvf').textContent = m.avFVF.toFixed(4);
   document.getElementById('kpi_av_sf').textContent = m.avSF.toFixed(4);
+  document.getElementById('kpi_rx_open').textContent = fmtRes(m.rxOpen);
+  document.getElementById('kpi_rx_closed').textContent = fmtRes(m.rxClosed);
   document.getElementById('kpi_loop').textContent = m.T0.toFixed(1) + ' 倍';
   document.getElementById('kpi_ratio').textContent = (m.routSF / m.routFVF).toFixed(1) + ' × 更低';
   document.getElementById('ss_vout').textContent = m.avFVF.toFixed(3) + ' · v_in';
